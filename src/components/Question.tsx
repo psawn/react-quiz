@@ -20,15 +20,15 @@ export function Question({
     isCorrect: null,
   });
 
-  let timer = 10000;
+  // let timer = 10000;
 
-  if (answer.selectedAnswer) {
-    timer = 500;
-  }
+  // if (answer.selectedAnswer) {
+  //   timer = 500;
+  // }
 
-  if (answer.isCorrect !== null) {
-    timer = 2000;
-  }
+  // if (answer.isCorrect !== null) {
+  //   timer = 2000;
+  // }
 
   function handleSelectAnswer(answer: string) {
     setAnswer({
@@ -52,16 +52,19 @@ export function Question({
 
   if (answer.selectedAnswer && answer.isCorrect !== null) {
     answerState = answer.isCorrect ? "correct" : "wrong";
-  } else if (answer.selectedAnswer) {
-    answerState = "answered";
-  }
+  } 
+
+  // if (answer.selectedAnswer) {
+  //   answerState = "answered";
+  // }
 
   return (
     <div id="question">
       <QuestionTimer
-        // add key -> when change timer value -> destroy and create question timer component
-        key={timer}
-        timeout={timer}
+        // key={timer}
+        // timeout={timer}
+        // key={index}
+        timeout={10000}
         onTimeout={answer.selectedAnswer === "" ? handleSkipAnswer : null}
         mode={answerState}
       />
